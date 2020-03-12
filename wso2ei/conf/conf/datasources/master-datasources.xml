@@ -36,7 +36,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://proxysql:3307/wso2userdb?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:mysql://proxysql:3306/wso2userdb?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2</username>
                     <password>wso2</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
@@ -59,7 +59,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://proxysql:3307/wso2regeidb?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:mysql://proxysql:3306/wso2regeidb?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2</username>
                     <password>wso2</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>

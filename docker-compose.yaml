@@ -29,17 +29,17 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "root"
 
-#  wso2ei:
-#    image: wso2ei:6.4.0
-#    container_name: wso2ei
-#    build: ./wso2ei
-#    depends_on:
-#      - proxysql
-#    ports:
-#      - "8280:8280"
-#      - "8243:8243"
-#      - "9443:9443"
-#    volumes:
-#      - ./wso2ei/conf:/home/wso2carbon/wso2-conf-volume
+  wso2ei:
+    image: wso2ei:6.4.0
+    container_name: wso2ei
+    build: ./wso2ei
+    depends_on:
+      - proxysql
+    ports:
+      - "8280:8280"
+      - "8243:8243"
+      - "9443:9443"
+    volumes:
+      - ./wso2ei/conf:/home/wso2carbon/wso2-conf-volume
 
  
