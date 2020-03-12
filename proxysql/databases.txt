@@ -18,3 +18,32 @@ create database wso2mb;
 grant all privileges on wso2mb.* to 'wso2'@'%';
 flush privileges;
 
+echo "-- DB INIT SCRIPT" > proxysql/initdb.sql
+
+echo "" >> proxysql/initdb.sql
+echo "-- WSO2EI REGISTRY DB" >> proxysql/initdb.sql
+echo "USE wso2regeidb;" >> proxysql/initdb.sql
+cat wso2ei/wso2ei-6.4.0/dbscripts/mysql5.7.sql >> proxysql/initdb.sql
+
+echo "" >> proxysql/initdb.sql
+echo "-- WSO2 USER DB" >> proxysql/initdb.sql
+echo "USE wso2userdb;" >> proxysql/initdb.sql
+cat wso2am/wso2am-2.6.0/dbscripts/mysql5.7.sql >> proxysql/initdb.sql
+
+echo "" >> proxysql/initdb.sql
+echo "-- WSO2AM REGISTRY DB" >> proxysql/initdb.sql
+echo "USE wso2regamdb;" >> proxysql/initdb.sql
+cat wso2am/wso2am-2.6.0/dbscripts/mysql5.7.sql >> proxysql/initdb.sql
+
+echo "" >> proxysql/initdb.sql
+echo "-- WSO2AM API DB" >> proxysql/initdb.sql
+echo "USE wso2api;" >> proxysql/initdb.sql
+cat wso2am/wso2am-2.6.0/dbscripts/apimgt/mysql5.7.sql >> proxysql/initdb.sql
+
+echo "" >> proxysql/initdb.sql
+echo "-- WSO2AM MB DB" >> proxysql/initdb.sql
+echo "USE wso2mb;" >> proxysql/initdb.sql
+cat wso2am/wso2am-2.6.0/dbscripts/mb-store/mysql-mb.sql >> proxysql/initdb.sql
+
+cat proxysql/initdb.sql |  mysql -h localhost --protocol=tcp -P 3307 -u wso2 -p
+

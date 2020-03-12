@@ -10,6 +10,12 @@ services:
       MYSQL_ROOT_PASSWORD: "root"
     volumes:
       - /mnt/data/mysql:/var/lib/mysql
+    deploy:
+     resources:
+      limits:
+       memory: "300Mi"
+      reservations:
+       memory: "300Mi"
 
   proxysql:
     image: proxysql:2.0.8-local
@@ -22,4 +28,18 @@ services:
       - "6032:6032"
     environment:
       MYSQL_ROOT_PASSWORD: "root"
+
+#  wso2ei:
+#    image: wso2ei:6.4.0
+#    container_name: wso2ei
+#    build: ./wso2ei
+#    depends_on:
+#      - proxysql
+#    ports:
+#      - "8280:8280"
+#      - "8243:8243"
+#      - "9443:9443"
+#    volumes:
+#      - ./wso2ei/conf:/home/wso2carbon/wso2-conf-volume
+
  
