@@ -42,4 +42,15 @@ services:
     volumes:
       - ./wso2ei/conf:/home/wso2carbon/wso2-conf-volume
 
+  wso2am:
+    image: wso2am:2.6.0
+    container_name: wso2am
+    build: ./wso2am
+    depends_on:
+      - proxysql
+    ports:
+      - "80:8280"
+      - "443:9443"
+    volumes:
+      - ./wso2am/conf:/home/wso2carbon/wso2-conf-volume
  
