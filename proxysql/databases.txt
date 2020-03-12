@@ -1,0 +1,20 @@
+create user 'wso2'@'%' identified by 'wso2';
+
+| wso2api            |
+| wso2mb             |
+| wso2regamdb        |
+| wso2regeidb        |
+| wso2userdb         |
+
+create database wso2userdb;
+grant all privileges on wso2userdb.* to 'wso2'@'%';
+create database wso2regamdb;
+grant all privileges on wso2regamdb.* to 'wso2'@'%';
+create database wso2regeidb;
+grant all privileges on wso2regeidb.* to 'wso2'@'%';
+create database wso2api;
+grant all privileges on wso2api.* to 'wso2'@'%';
+create database wso2mb;
+grant all privileges on wso2mb.* to 'wso2'@'%';
+flush privileges;
+
